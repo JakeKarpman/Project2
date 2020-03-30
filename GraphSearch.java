@@ -3,34 +3,34 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class GraphSearch{
 	public ArrayList<GraphNode> DFSIter(final GraphNode start, final GraphNode end){
-		ArrayList<GraphNode> stack = new ArrayList<>();
-		ArrayList<String> visitedNodes = new ArrayList<>();
-		stack.add(start);
-		visitedNodes.add(start.data);
+		Stack<GraphNode> stack = new Stack<GraphNode>();
+		ArrayList<GraphNode> trav = new ArrayList<>();
+		HashSet<GraphNode> visited = new HashSet<>();
+		stack.push(start);
 		while(!stack.isEmpty()){
-			GraphNode curr = stackPop(stack);
-			for(int i =0; i<curr.neighbors.size(); i++){
-				if(!visitedNodes.contains(curr.neighbors.get(i))){
-					visitedNodes.add(curr.neighbors.get(i).data);
-					stack.add(curr.neighbors.get(i));
-				}
-				if(curr.neighbors.get(i) == end){
-					return stack;
-				}
+			GraphNode curr = stack.pop();
+			if(visited.contains(curr)){
+				continue;
+			}
+			else{
+				visited.add(curr);
+			}
+			trav.add(curr);
+			if(curr.equals(end)){
+				break;
+			}
+			for(GraphNode i:curr.neighbors){
+				stack.push(i);
 			}
 		}
+		if(visited.contains(end)){
+			return trav;
+		}
 		return null;
-	}
-	private GraphNode stackPop(ArrayList<GraphNode> stack){
-		if(!(stack.size() == 0)){
-			return stack.remove(stack.size()-1);
-		}
-		else{
-			return null;
-		}
 	}
 	public ArrayList<GraphNode> DFSRec(final GraphNode start, final GraphNode end){
 		ArrayList<GraphNode> list = new ArrayList<>();
