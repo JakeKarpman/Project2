@@ -65,25 +65,27 @@ public class Main {
         
         //Use iter to test DFSIter, comment out unused test 
         iter=graphSearch.DFSIter(start,end).iterator();
-        while(iter.hasNext())
+        while(iter.hasNext()){
             System.out.println(iter.next().data);
+	}
         System.out.print(start.data + "     "+end.data );
         
         //Use iter2 to test DFSRec, comment out unused test
         iter2 = graphSearch.DFSRec(start, end).iterator();
-        while(iter2.hasNext())
+        while(iter2.hasNext()){
             System.out.println(iter2.next().data);
+	}
         System.out.print(start.data + "     "+end.data );
         
         //Use this to test BFTIter, comment out unused test
-		test = BFTIterLinkedList(graph);
-		for(GraphNode j:test){
-			System.out.println(j.data);
-		}
-		//Use this to test Recursive BFT, comment out unused test
-		test2 = BFTRecLinkedList(graph);
-		for(GraphNode k: test2){
-			System.out.println(k.data);
-		}
+	test = BFTIterLinkedList(graph);
+	for(GraphNode j:test){
+		System.out.println(j.data);
+	}
+	//Use this to test Recursive BFT, comment out unused test
+	test2 = BFTRecLinkedList(graph);
+	for(GraphNode k: test2){
+		System.out.println(k.data);
+	}
 	}
 }
