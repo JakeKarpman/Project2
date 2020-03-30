@@ -52,15 +52,36 @@ public class Main {
 	}
 	public static void main(String [] args){
 		TraverseTown graph = new TraverseTown();
-		graph = createLinkedList(10000);
-		ArrayList<GraphNode> test,test2 = new ArrayList<>();
+		GraphSearch graphSearch = new GraphSearch();
+		graph = createLinkedList(100);
+		ArrayList<GraphNode> test, test2 = new ArrayList<>();
+        HashSet<GraphNode> nodes=graph.getAllNodes();
+        Iterator<GraphNode> iter =nodes.iterator();
+        Iterator<GraphNode> iter2 = nodes.iterator();
+        GraphNode start=iter.next();
+        GraphNode end=start;
+        while(iter.hasNext())
+            end=iter.next();
+        
+        //Use iter to test DFSIter, comment out unused test 
+        iter=graphSearch.DFSIter(start,end).iterator();
+        while(iter.hasNext())
+            System.out.println(iter.next().data);
+        System.out.print(start.data + "     "+end.data );
+        
+        //Use iter2 to test DFSRec, comment out unused test
+        iter2 = graphSearch.DFSRec(start, end).iterator();
+        while(iter2.hasNext())
+            System.out.println(iter2.next().data);
+        System.out.print(start.data + "     "+end.data );
+        
+        //Use this to test BFTIter, comment out unused test
 		test = BFTIterLinkedList(graph);
-		test2 = BFTRecLinkedList(graph);
-		//Use this to test Iterative
 		for(GraphNode j:test){
 			System.out.println(j.data);
 		}
-		//Use this to test Recursive
+		//Use this to test Recursive BFT, comment out unused test
+		test2 = BFTRecLinkedList(graph);
 		for(GraphNode k: test2){
 			System.out.println(k.data);
 		}
