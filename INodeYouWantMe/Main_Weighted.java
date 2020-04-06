@@ -11,7 +11,7 @@ public class Main_Weighted {
 	public static void main(String [] args){
 		WeightedGraph graph = new WeightedGraph();
 							
-		/*Graph below is  (0) -5-(1)- 8- (2)
+		/*Graph below is                      (0) -5-(1)- 8- (2)
 							\     /\     /
 							 1   4  3   6
 							  \ /    \ /
