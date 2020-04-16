@@ -7,7 +7,7 @@ public class Main{
 	public static void main(String [] args){
 		WeightedGraph graph = new WeightedGraph();
 							
-		/*Graph below is  (0) -5-(1)- 8- (2)
+		/*Graph below is                      (0) -5-(1)- 8- (2)
 							\     /\     /
 							 1   4  3   6
 							  \ /    \ /
@@ -26,7 +26,7 @@ public class Main{
 		graph.addWeightedEdge(graph.getGraphNode("2"), graph.getGraphNode("4"), 6);
 		
 		//Use result below to test createRandomCompleteWeightedGraph, this is commented out in output
-		graph = createRandomCompleteWeightedGraph(10);
+		//graph = createRandomCompleteWeightedGraph(10);
 		
 		HashMap<GraphNode, Integer> dDict = dijkstras(graph.getGraphNode("0"));
 		Iterator<GraphNode> iter = dDict.keySet().iterator();
@@ -41,9 +41,7 @@ public class Main{
 		HashSet<GraphNode> nodes = graph.getAllNodes();
 		Random random = new Random();
 		GraphNode mark;
-		if(n<1){
-			return graph;
-		}
+		
 		for(int i = 1; i<=n; i++){
 			graph.addNode(String.valueOf(n));
 		}
@@ -62,9 +60,7 @@ public class Main{
 		WeightedGraph graph = new WeightedGraph();
 		HashSet<GraphNode> nodes = graph.getAllNodes();
 		Iterator<GraphNode> iter = nodes.iterator();
-		if(n<1){
-			return graph;
-		}
+		
 		for(int i = 1; i<=n; i++){
 			graph.addNode(String.valueOf(n));
 		}
