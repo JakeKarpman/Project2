@@ -42,8 +42,8 @@ public class Main{
 		Random random = new Random();
 		GraphNode mark;
 		
-		for(int i = 1; i<=n; i++){
-			graph.addNode(String.valueOf(n));
+		for(int i = 0; i<n; i++){
+			graph.addNode(String.valueOf(i));
 		}
 		
 		for(Iterator<GraphNode> iter = nodes.iterator();iter.hasNext();){
@@ -61,8 +61,8 @@ public class Main{
 		HashSet<GraphNode> nodes = graph.getAllNodes();
 		Iterator<GraphNode> iter = nodes.iterator();
 		
-		for(int i = 1; i<=n; i++){
-			graph.addNode(String.valueOf(n));
+		for(int i = 0; i<n; i++){
+			graph.addNode(String.valueOf(i));
 		}
 		for(GraphNode i,j = iter.next(); iter.hasNext();){
 			i = j;
